@@ -6,8 +6,4 @@ app = Flask(__name__)
 def home():
     return "Hello World"
 
-@app.route('/api/teams')
-def teams():
-    return "Teams"
-
 app.run(debug=True)
