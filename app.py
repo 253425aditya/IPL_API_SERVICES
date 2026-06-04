@@ -1,5 +1,5 @@
-from flask import Flask
-
+from flask import Flask,jsonify
+import ipl
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,6 +8,7 @@ def home():
 
 @app.route('/api/teams')
 def teams():
-    return "Teams"
+    teams = ipl.teamsApi()
+    return jsonify(teams)
 
 app.run(debug=True)
