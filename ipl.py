@@ -14,4 +14,17 @@ def teamsApi():
     }
     return teams_dict
 
-print(teamsApi())
+def teamVteam(Team1,Team2):
+    temp_df = matches[((matches['team1'] == Team1) & (matches['team2'] == Team2)) | ((matches['team1'] == Team2) & (matches['team2'] == Team1))] 
+    total_matches = len(temp_df)
+    team1 = temp_df['winner'].value_counts()[Team1]
+    team2 = temp_df['winner'].value_counts()[Team2]
+    draws = total_matches - (team1+team2)
+
+    respone = {
+        'Total_matches' : total_matches,
+        Team1 : team1.item(), 
+        Team2 : team2.item(), 
+        'Draws' : draws.item()
+    }
+    return respone
