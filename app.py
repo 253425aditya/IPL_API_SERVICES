@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hello World"
+    return "Ipl match Analysis API"
 
 @app.route('/api/teams')
 def teams():
